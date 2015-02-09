@@ -1,0 +1,23 @@
+% function inputs array of baseline and drug recorded files, outputs stats
+% on each with cell number of data sets long; percentage gives
+function [drugstats,percentage]=comparedrug_DRP(baseline,drug)
+numruns=length(baseline);
+drugstats=cell(numruns,2);    %defines cell size as the number of runs, with columns for DRP and VRP
+
+for i=1:numruns
+    files=[baseline(i),drug(i)];
+    [DRPstats]=comparemeanDRP(files,i);
+    drugstats{i,1}=DRPstats{1,1};
+    drugstats{i,2}=DRPstats{2,1}; 
+    
+    %normalizes DRP and VRP amplitude based on initial file for each run
+    percentage{1,1}(i,:)=DRPstats{1,1}(2,:)./DRPstats{1,1}(1,:);
+    percentage{1,2}(i,:)=DRPstats{2,1}(2,:)./DRPstats{2,1}(1,:);
+       
+end
+
+figure(100); bar(mean(percentage{1,1}(:,:)));   hold all
+    errorbar(mean(percentage{1,i}(:,:)),std(percentage{1,i}(:,:)),'.')
+    set(gca,'LineWidth',2,'FontSize',12);
+
+end

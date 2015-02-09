@@ -1,0 +1,69 @@
+% Function inputs current clamp file names as a cell of strings and outputs structure with
+% parameters for each file
+% To simplify, make injection a zero vector the length of files
+function [cell]=comparecurr(files,injection)
+
+[R,C]=size(files);
+cell = struct('name', {}, 'Vth', {}, 'amp', {}, 'dur', {},'dur2',{},'AHPmag', {},'AHPdur', {}, 'freq', {}, 'current', {},'Rm', {},'Cm',{},'fI_slope',{},'Vm_ss',{},'k',{},'j',{});
+
+for i=1:C
+    name=files{i}
+    cell(i).name=name;
+    file=readabf(name);
+    [Vth,amp,overshoot,dur,dur2,AHPmag,AHPdur,freq,k,current,Vm_ss,Vm_base,tau,first_spike,temp]=currclamp(file,injection(i));
+    figure(i*100); plotcurr(name,0);
+
+    if (isempty(Vth)<1)
+        j=find(Vth~=0);
+        cell(i).j=j;
+        cell(i).Vth=Vth(j);
+        cell(i).amp=amp(j);
+        cell(i).overshoot=overshoot(j);
+        cell(i).dur=dur(j);
+        cell(i).dur2=dur2(j);
+        cell(i).AHPmag=AHPmag(j);
+        cell(i).AHPdur=AHPdur(j);
+        cell(i).current=current;
+        cell(i).k=k;
+        cell(i).first_spike=first_spike(j);
+       %figure(1); plot(current(1:(k-1)),tau(1:(k-1)),'*'); hold all
+       
+       if (length(k)>1)
+           cell(i).freq=freq(k);
+           fit2=polyfit(current(k),freq(k),1);
+           cell(i).fI_slope=fit2(1);
+       elseif(length(k)==1)
+           cell(i).freq=freq(k);
+           cell(i).fI_slope=0;
+       else
+           cell(i).fI_slope=0;
+       end
+             
+   end
+    cell(i).temp=temp;  %returns full frequency values
+   % [fit,S]=polyfit(current(RMfit_start:RMfit_no),(Vm_ss(RMfit_start:RMfit_no)-Vm_base(RMfit_start:RMfit_no)),1);
+
+    index=find(Vm_ss>-80 & Vm_ss<-50);
+    cell(i).index=index;
+    
+    if length(index)<2
+        index=[index(1)-2 index(1)-1 index];
+    elseif length(index)==2
+        index=[index(1)-1 index];
+    end
+    
+    [fit,S]=polyfit(current(index),(Vm_ss(index)-Vm_base(index)),1);
+    cell(i).Rm=fit(1)*10^9;
+    [estimate,error]=polyval(fit,current(index),S)
+   % figure(1); plot(current(index),(Vm_ss(index)-Vm_base(index)),'.', current(index),estimate,'-'); hold all   
+   
+       %cell(i).Cm=mean(tau(index))/(fitx(1).*10^9);
+       cell(i).Vm_ss=Vm_ss;
+       cell(i).Vm_base=Vm_base;
+     
+    
+end
+%figure(1); xlabel('Current (pA)'); ylabel('Delta Vm (mV)');
+
+
+end

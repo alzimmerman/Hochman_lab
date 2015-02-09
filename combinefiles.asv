@@ -1,0 +1,11 @@
+%Function combines files from first file to last file given the prefix of
+%yymdd
+function files=combinefiles(prefix,first,last)
+
+for i=first:last
+    if i<10
+        name=sprintf('%0.0f.abf', i);
+       
+    elseif i>=10
+        name=sprintf('072280%0.0f.abf', i);
+    end

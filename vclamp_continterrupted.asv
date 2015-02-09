@@ -1,0 +1,43 @@
+% function plots vclamp constant
+function v=vclamp_continterrupted(filename, base_volt)
+
+file=readabf(filename);
+
+time=(file.data.time');
+Im= file.data.v_clamp/10;
+Vwaveform=file.waveform.yPoints(:,1)+base_volt; % only need first column
+Swaveform=file.waveform.xPoints(:,1);  % gives sample number
+
+[R,C]=size(Im);
+Fs=1/time(2);
+
+time_continuous=[];
+Im_continuous=[];
+
+Fs=1/time(2);
+
+[sample_inject,sample_noinject]=separateVm(time,Vwaveform,Swaveform,base_volt);
+
+figure(1); subplot(3,1,1); plot(time(sample_inject),Im(sample_inject,:)); hold all
+    
+for i=1:C
+    i
+    [Vm_ss,Gm,Im]=calc_conduct(Swaveform,Iwaveform,Vm(:,i));
+    p(i).fit= polyfit(Vm_ss,Im,1);
+    p(i).estimates=polyval(p(i).fit,Vm_ss);
+    Gm_fit=[Gm_fit p(i).fit(1)];
+    figure(1); subplot(3,1,2); set(gcf,'DefaultAxesColorOrder',[0 0 1;0 0 1;0 .5 0; 0 .5 0;1 0 0; 1 0 0; 0 .75 .75; 0 .75 .75;.75 0 .75; .75 0 .75; .75 .75 0; .75 .75 0;.25 .25 .25; .25 .25 .25]);
+    plot(Vm_ss,Im,'.',Vm_ss,p(i).estimates,'-'); hold all
+    time_continuous=[time_continuous; (((i-1).*time(length(time)))+time(sample_noinject))];
+    Vm_continuous=[Vm_continuous; Vm(sample_noinject,i)];
+    leg=strvcat(leg, num2str(i), [num2str(i),' fit']);
+   
+end
+
+
+plot(time,Im)
+title(['Constant Current Injection, File ',filename])
+xlabel('Time (s)'); ylabel('Vm (mV)'); 
+
+
+end

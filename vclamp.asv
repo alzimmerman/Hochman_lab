@@ -1,0 +1,45 @@
+% Function reads in filename of abf file, plots IV for peak inward and
+% steady state values
+% Data input is in ms, mV, and pA
+
+function [voltage,avg,peak,end_time,base_start,base_end,Im_base]= vclamp(filename,holding,time_previous)
+
+file=readabf(filename);
+
+time=file.data.time;
+Im= file.data.v_clamp./10;
+Vm=file.waveform.yPoints+holding;       %waveform has fewer time points and y values
+Twaveform=file.waveform.xPoints;    % gives sample number
+  
+[R,C]=size(Im);
+voltage=zeros(1,C); avg=zeros(1,C); peak=zeros(1,C); index=zeros(1,C);
+base_start=zeros(1,C); base_end=zeros(1,C); Im_base=zeros(1,C);
+end_time=time_previous+C.*time(R);
+
+% for initial run calculates clamp on and off times, also calculates time of capacitive peak; requires first
+% voltage step to be less than holding
+    j=find(Vm(:,1)~=holding,1);
+    clampon=Twaveform(j,1);
+    clampoff=Twaveform(j+1,1);
+    [cap,capindex]=max(Im(clampon:clampoff,1));
+    k=find(Im((capindex+clampon):clampoff,1)<=0,1);
+    capend=capindex+clampon+k;
+    
+for i=1:C
+    voltage(i)=Vm(j,i);
+     
+    base_start(i)=time(2)+time_previous+(i-1).*time(R);
+    base_end(i)= time(clampon)+time_previous +(i-1).*time(R);
+    Im_base(i)=mean(Im(1:clampon));
+    
+    avg(i)=mean(Im((clampoff-clampon)/2:clampoff,i));  %takes mean from second half of voltage step  
+    [peak(i),index]=min(Im(capend:clampoff,i));        %calculates peak inward current
+        
+    %figure(3); plot(time,Im(:,i),'-',time(index+capend),peak(i),'>',time(clampoff),avg(i),'*'); hold all;  
+    
+end
+
+
+%figure(3); xlabel('Time (ms)'),ylabel('Im(pA)')
+
+end

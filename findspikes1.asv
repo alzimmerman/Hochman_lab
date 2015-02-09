@@ -1,0 +1,21 @@
+% Function finds spike times and Vths for spikes that exceed -10mV
+
+function [spikes2, Vth]= findspikes1(time,Vm,Fs,clampon)
+
+spikes2=[]; VTH=[];
+spikemin=.020;   %minimum amount of time between spikes, in seconds
+transient=.005; %time to ignore at beginning of signal, in seconds
+
+Fs=1/time(2);
+spikes=find(Vm>0);
+k=find(spikes>(clampon+transient.*Fs),1);
+
+if (isempty(k)~=1)
+   for (j=(k+1):length(spikes))
+        if (time(spikes(j))-time(spikes(j-1)) > spikemin);
+           [samplemax,Vth]=phasespace_derivative(time(spikes(j-1):spikes(j)),Vm(spikes(j-1):spikes(j)),Fs);
+            spikes2=[spikes2 (samplemax+spikes(j-1))];
+            VTH=[VTH Vth];
+        end
+   end   
+end

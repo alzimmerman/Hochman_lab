@@ -1,0 +1,1 @@
+[Loadings,specificVar,T,stats]=factoran(

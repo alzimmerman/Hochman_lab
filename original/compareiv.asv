@@ -1,0 +1,26 @@
+% Function takes a vertical array of strings with various filenames
+% Use strvcat to add filenames in string array definition
+
+function [I,V]=compareiv(files)
+
+[R,C]=size(files);
+leg={};
+
+for i=1:R
+    name=files(i,:);
+    [voltage,avg,peak]= vclamp(name);
+    leg=strvcat(leg, name);
+    figure(2)
+    subplot(2,1,1); plot(voltage,avg);
+    title('Steady State Current')
+    xlabel('Vm (mV)')
+    ylabel('Current (pA)')
+    hold all
+    subplot(2,1,2); plot(voltage,peak);
+    title('Peak Inward Current')
+    xlabel('Vm (mV)')
+    ylabel('Current (pA)')
+    hold all
+end
+
+legend=(leg);

@@ -1,0 +1,726 @@
+8
+
+dir
+6
+file:///C:/SVN%20repository/trunk
+file:///C:/SVN%20repository
+
+
+
+2007-11-27T18:51:21.945250Z
+6
+Shawn Hochman
+
+
+svn:special svn:externals svn:needs-lock
+
+
+
+
+
+
+
+
+
+
+
+d67bd2d0-5d55-4745-8a78-d6b5c8bde57c
+
+readabf.m
+file
+
+
+
+
+2007-10-31T19:18:10.203125Z
+463d95f1aa1ebe3f8d0a74d64d277423
+2007-10-31T18:40:46.468750Z
+1
+Shawn Hochman
+
+filter.m
+file
+9
+
+
+
+2007-11-02T18:02:26.828125Z
+3594f05b186e616703f8cda1ae240527
+2008-02-22T15:47:51.497250Z
+9
+Shawn Hochman
+
+adjust_bridgebal.m
+file
+15
+
+
+
+2008-05-02T19:07:39.998625Z
+46b971f0ffd5560e6e1ae2b521b80c0c
+2008-05-07T18:48:12.670500Z
+15
+Shawn Hochman
+
+concatenate_ccstep.m
+file
+15
+
+
+
+2008-04-29T15:41:54.080250Z
+dae7afe1402091d29351b303d525c6cc
+2008-05-07T18:48:12.670500Z
+15
+Shawn Hochman
+
+forJacob.m
+file
+20
+
+
+
+2009-05-11T20:53:36.009375Z
+ddfddceb1a700ec5dde4b9823432094a
+2009-05-28T23:22:08.518000Z
+20
+Shawn Hochman
+
+compile_Jacob.m
+file
+20
+
+
+
+2009-05-11T20:59:11.696875Z
+e1177117ac443a3f9c471e504c01b952
+2009-05-28T23:22:08.518000Z
+20
+Shawn Hochman
+
+compile_current.m
+file
+16
+
+
+
+2008-05-13T14:26:24.569750Z
+a53b497afe7198460db8f80e4e46cceb
+2008-07-07T20:15:47.838125Z
+16
+Shawn Hochman
+
+mygui.m
+file
+18
+
+
+
+2008-10-15T18:25:14.987167Z
+a10d1d5076a02e0340dd59c2912f1fa5
+2009-04-06T19:43:54.211000Z
+18
+Shawn Hochman
+
+vclamp_continterrupted.m
+file
+9
+
+
+
+2007-11-02T22:16:15.218750Z
+126bfd0765ad8a3005ee3c31e69cbb76
+2008-02-22T15:47:51.497250Z
+9
+Shawn Hochman
+
+vclamp_series.m
+file
+9
+
+
+
+2008-01-25T20:30:13.380375Z
+1aca7e1e77bad477dea1de0553df595f
+2008-02-22T15:47:51.497250Z
+9
+Shawn Hochman
+
+phasespace_derivative.m
+file
+19
+
+
+
+2009-05-11T23:21:26.603125Z
+0287355f23d03015ed24d397af7f93ba
+2009-05-11T23:46:24.650000Z
+19
+Shawn Hochman
+
+combinefiles.m
+file
+
+
+
+
+2007-11-13T20:16:07.937500Z
+ea6f4bd45f6614900d27977a4434db96
+2007-11-15T19:03:19.267750Z
+5
+Shawn Hochman
+
+xticklabel_rotate.m
+file
+20
+
+
+
+2009-05-14T20:28:51.243750Z
+a767cb1930c26b9bbd65d225ee4bd588
+2009-05-28T23:22:08.518000Z
+20
+Shawn Hochman
+
+derivative.m
+file
+9
+
+
+
+2008-01-11T18:15:13.609875Z
+1e1587b38a6680a4d26384bca000e86a
+2008-02-22T15:47:51.497250Z
+9
+Shawn Hochman
+
+separate.m
+file
+
+
+
+
+2007-11-01T19:54:05.703125Z
+e14ee3d7e6f77a1b60d0843515872e3c
+2007-11-02T18:29:09.890625Z
+3
+Shawn Hochman
+
+meanparameters.m
+file
+21
+
+
+
+2009-07-01T18:14:19.242500Z
+2bbfed4a5d506325276254aa64cc5ba2
+2009-11-19T22:35:17.359375Z
+21
+Shawn Hochman
+
+plotcurr.asv
+file
+19
+
+
+
+2009-05-07T22:35:14.055248Z
+933f9c81f8caf480870eeec1bf3d07fd
+2009-05-11T23:46:24.650000Z
+19
+Shawn Hochman
+
+cclamp_continterrupted.m
+file
+
+
+
+
+2007-11-02T18:51:50.625000Z
+3edd0407c4899d4354b1904543313e58
+2007-11-02T19:29:21.109375Z
+4
+Shawn Hochman
+
+testcurr.asv
+file
+12
+
+
+
+2008-03-11T17:19:31.218750Z
+07c236162d8b464b14e8ed09284ba9b6
+2008-03-12T14:35:58.515625Z
+12
+Shawn Hochman
+
+currclamp_forseries.m
+file
+15
+
+
+
+2008-04-10T16:10:19.250000Z
+7311822edad9361798f80359df9ba16e
+2008-05-07T18:48:12.670500Z
+15
+Shawn Hochman
+
+current_series_gui.fig
+file
+16
+
+
+
+2008-05-26T00:26:40.364875Z
+e7896ceac27c45483d11aad154547409
+2008-07-07T20:15:47.838125Z
+16
+Shawn Hochman
+has-props
+
+plotcurr.m
+file
+21
+
+
+
+2009-06-11T20:11:02.531250Z
+f93ddb2bbcba0ad05d14e96e46ab9192
+2009-11-19T22:35:17.359375Z
+21
+Shawn Hochman
+
+testcurr.m
+file
+13
+
+
+
+2008-03-12T14:37:02.593750Z
+51b93cfe99e1da41c56ec71cda158920
+2008-03-14T19:05:18.263125Z
+13
+Shawn Hochman
+
+start_files.m
+file
+18
+
+
+
+2008-10-14T15:53:25.468750Z
+2dbd6041b57eb27dc398c41fcefda3e6
+2009-04-06T19:43:54.211000Z
+18
+Shawn Hochman
+
+findspikes1.m
+file
+16
+
+
+
+2008-05-14T22:39:24.897875Z
+c2ae78e541999cef8f4c41abb9ab1cfc
+2008-07-07T20:15:47.838125Z
+16
+Shawn Hochman
+
+cluster.m
+file
+21
+
+
+
+2009-07-10T00:02:41.131000Z
+5538756f018d0b6f8006bb70ca371daf
+2009-11-19T22:35:17.359375Z
+21
+Shawn Hochman
+
+constcurr.m
+file
+
+
+
+
+2007-11-13T19:19:52.125000Z
+612ed65ee4b115f33818c8a34827fd78
+2007-11-15T19:03:19.267750Z
+5
+Shawn Hochman
+
+compareiv.asv
+file
+18
+
+
+
+2008-09-17T20:41:32.357599Z
+513c9e09f555c5d4f5e3aa33b4795779
+2009-04-06T19:43:54.211000Z
+18
+Shawn Hochman
+
+vramp.asv
+file
+19
+
+
+
+2009-04-20T14:52:35.890625Z
+08388937c7324bfe23d05f8f0333fcef
+2009-05-11T23:46:24.650000Z
+19
+Shawn Hochman
+
+vramp.m
+file
+19
+
+
+
+2009-04-20T15:08:05.875000Z
+a0ddb733de5b5ceb2bd55e8a2a062230
+2009-05-11T23:46:24.650000Z
+19
+Shawn Hochman
+
+compareiv.m
+file
+19
+
+
+
+2009-04-14T19:57:38.734250Z
+706241b14af7a0decd02b46d0324e9e8
+2009-05-11T23:46:24.650000Z
+19
+Shawn Hochman
+
+currclamp.asv
+file
+18
+
+
+
+2009-04-01T19:18:42.424875Z
+4506b01645df172a53424b78a0f7e0bb
+2009-04-06T19:43:54.211000Z
+18
+Shawn Hochman
+
+compile_IV.m
+file
+18
+
+
+
+2008-11-11T00:29:42.218875Z
+419e739165ec88f7f531be8d91a03503
+2009-04-06T19:43:54.211000Z
+18
+Shawn Hochman
+
+current_gui.m
+file
+15
+
+
+
+2008-03-11T18:29:22.515625Z
+7afa1be3bfd5aa0f97d900c328fbbc26
+2008-05-07T18:48:12.670500Z
+15
+Shawn Hochman
+
+currclamp.m
+file
+21
+
+
+
+2009-11-19T22:17:26.812500Z
+033a14dd26080a127616037f99fe0e16
+2009-11-19T22:35:17.359375Z
+21
+Shawn Hochman
+
+find_tau.m
+file
+18
+
+
+
+2008-11-03T19:48:15.529000Z
+bd628d8ebc7ddf76b6b587e5ed3b4038
+2009-04-06T19:43:54.211000Z
+18
+Shawn Hochman
+
+series_start_files.m
+file
+21
+
+
+
+2009-07-01T18:12:22.164375Z
+4de11cb8caf0bd025ad9b191874c9a6f
+2009-11-19T22:35:17.359375Z
+21
+Shawn Hochman
+
+compare_drugs.m
+file
+9
+
+
+
+2008-01-25T20:32:27.146000Z
+a902254e6a8dee2987efb92282dbfe27
+2008-02-22T15:47:51.497250Z
+9
+Shawn Hochman
+
+findspikes.asv
+file
+19
+
+
+
+2009-05-11T23:18:16.540625Z
+1bf184ae16666b367114d770e0d53016
+2009-05-11T23:46:24.650000Z
+19
+Shawn Hochman
+
+plot_fI.m
+file
+21
+
+
+
+2009-07-06T16:18:34.521625Z
+ae1f22965a37776a72e1dc07972c0114
+2009-11-19T22:35:17.359375Z
+21
+Shawn Hochman
+
+testspikes.m
+file
+9
+
+
+
+2008-01-11T18:50:38.484875Z
+25252b66c219c238875b9a0308ab5c59
+2008-02-22T15:47:51.497250Z
+9
+Shawn Hochman
+
+findspikes.m
+file
+21
+
+
+
+2009-11-19T22:11:00.687500Z
+680f3e5fef0d4061b9f8cebf27648b6f
+2009-11-19T22:35:17.359375Z
+21
+Shawn Hochman
+
+current_series_gui.m
+file
+16
+
+
+
+2008-05-26T00:26:40.318000Z
+8adf356703c47a87b2e153f8aec5076f
+2008-07-07T20:15:47.838125Z
+16
+Shawn Hochman
+
+currentseries_gui.m
+file
+18
+
+
+
+2008-05-26T00:29:11.833625Z
+a34fb8a2882719cc44886a41fd3ea89e
+2009-04-06T19:43:54.211000Z
+18
+Shawn Hochman
+
+currclamp_series.m
+file
+9
+
+
+
+2007-11-13T17:02:04.375000Z
+ca8ce4f7a7885832513eeb8314ded017
+2008-02-22T15:47:51.497250Z
+9
+Shawn Hochman
+
+mygui.fig
+file
+15
+
+
+
+2008-05-07T17:42:50.467375Z
+91810c559b00b2368c6b2655bd896b7c
+2008-05-07T18:48:12.670500Z
+15
+Shawn Hochman
+has-props
+
+vclamp_forseries.m
+file
+9
+
+
+
+2008-01-25T17:04:58.708500Z
+ab374857e8c7ea0b17aed9035b5b291b
+2008-02-22T15:47:51.497250Z
+9
+Shawn Hochman
+
+separateVM.m
+file
+9
+
+
+
+2007-11-02T21:54:43.468750Z
+9b73c5836a301fd8ffecd900bdf7fa0a
+2008-02-22T15:47:51.497250Z
+9
+Shawn Hochman
+
+cclamp_series.m
+file
+16
+
+
+
+2008-05-12T21:41:29.741625Z
+f616714ff232923b2ef3d274811ab455
+2008-07-07T20:15:47.838125Z
+16
+Shawn Hochman
+
+vclamp.asv
+file
+19
+
+
+
+2009-04-21T20:10:56.484375Z
+400a1e1b0766a6090830f61a348ffba8
+2009-05-11T23:46:24.650000Z
+19
+Shawn Hochman
+
+comparecurr.asv
+file
+21
+
+
+
+2009-11-19T22:33:51.281250Z
+97a1f1d737f5fcf275e64890bd573d28
+2009-11-19T22:35:17.359375Z
+21
+Shawn Hochman
+
+spikeparams.m
+file
+21
+
+
+
+2009-07-01T17:47:12.039375Z
+f1f0416c77c77267895fc948115fb4d0
+2009-11-19T22:35:17.359375Z
+21
+Shawn Hochman
+
+plot_cluster.m
+file
+21
+
+
+
+2009-07-16T16:47:30.046125Z
+cc80e8cc76e00281b2d1e742be14434d
+2009-11-19T22:35:17.359375Z
+21
+Shawn Hochman
+
+correlate.m
+file
+21
+
+
+
+2009-07-10T16:57:29.655929Z
+52c2b418789269fa0155e1a15b0b01e2
+2009-11-19T22:35:17.359375Z
+21
+Shawn Hochman
+
+calc_conduct.m
+file
+
+
+
+
+2007-11-02T18:31:44.531250Z
+21578cf4e9fcbd33a5789941609f743a
+2007-11-02T19:29:21.109375Z
+4
+Shawn Hochman
+
+vclamp.m
+file
+19
+
+
+
+2009-04-21T20:14:12.078125Z
+5bcacd85a8786579b4a976c1aad413e2
+2009-05-11T23:46:24.650000Z
+19
+Shawn Hochman
+
+comparecurr.m
+file
+21
+
+
+
+2009-11-19T22:34:00.828125Z
+97a1f1d737f5fcf275e64890bd573d28
+2009-11-19T22:35:17.359375Z
+21
+Shawn Hochman
+
+compile_bridgebal.m
+file
+15
+
+
+
+2008-05-02T20:12:40.014250Z
+3cfa445c6d3a88052071bb7079a57afc
+2008-05-07T18:48:12.670500Z
+15
+Shawn Hochman
+

@@ -1,0 +1,75 @@
+% Function inputs current clamp file names as a cell of strings and outputs structure with
+% parameters for each file
+% To simplify, make injection a zero vector the length of files
+function [spikingparameters,constrained_firstparams]=comparecurr(files,injection)
+
+[~,C]=size(files);
+spikingparameters = struct('name', {}, 'Vth', {}, 'amp', {}, 'dur', {},'dur2',{},'AHPmag', {},'AHPdur', {}, 'freq', {}, 'current', {},'Rm', {},'Cm',{},'fI_slope',{},'Vm_ss',{},'k',{},'j',{},'firstparams',{});
+constrained_firstparams=zeros(C,5);
+
+for i=1:C
+    name=files{i}
+    spikingparameters(i).name=name;
+    file=readabf(name);
+    [Vth,amp,overshoot,dur,dur2,AHPmag,AHPdur,freq,k,current,Vm_ss,Vm_base,~,first_spike,temp,allfirstparams]=currclamp(file,injection(i));
+    figure(i*100); plotcurr(name,0);
+
+    if (isempty(Vth)<1)
+        j=find(Vth~=0);
+        spikingparameters(i).j=j;
+        spikingparameters(i).Vth=Vth;
+        spikingparameters(i).amp=amp;
+        spikingparameters(i).overshoot=overshoot;
+        spikingparameters(i).dur=dur;
+        spikingparameters(i).dur2=dur2;
+        spikingparameters(i).AHPmag=AHPmag;
+        spikingparameters(i).AHPdur=AHPdur;
+        spikingparameters(i).current=current;
+        spikingparameters(i).k=k;
+        spikingparameters(i).first_spike=first_spike;
+       
+        if isempty(j)<1
+            spikingparameters(i).firstparams=temp(j(1)).firstparams;
+        else
+            spikingparameters(i).firstparams=0;
+        end
+       %figure(1); plot(current(1:(k-1)),tau(1:(k-1)),'*'); hold all
+       
+       if (length(k)>1)
+           spikingparameters(i).freq=freq(k);
+           fit2=polyfit(current(k),freq(k),1);
+           spikingparameters(i).fI_slope=fit2(1);
+       elseif(length(k)==1)
+           spikingparameters(i).freq=freq(k);
+           spikingparameters(i).fI_slope=0;
+       else
+           spikingparameters(i).fI_slope=0;
+       end
+             
+   end
+    spikingparameters(i).temp=temp;  %returns full frequency values
+    index=find(Vm_ss>-80 & Vm_ss<-50);
+    
+    
+    if length(index)==1
+        index=[index(1)-2 index(1)-1 index];
+    elseif length(index)==2
+        index=[index(1)-1 index];
+    end
+    
+    if isempty(index)<1
+        spikingparameters(i).index=index;
+        [fit,S]=polyfit(current(index),(Vm_ss(index)-Vm_base(index)),1);
+        spikingparameters(i).Rm=fit(1)*10^9;
+        [estimate,error]=polyval(fit,current(index),S);
+       spikingparameters(i).Vm_ss=Vm_ss;
+       spikingparameters(i).Vm_base=Vm_base;
+    else
+        spikingparameters(i).index=0; spikingparameters(i).Rm=0; spikingparameters(i).Vm_ss=0; spikingparameters(i).Vm_base=0;
+    end
+    
+end
+%figure(1); xlabel('Current (pA)'); ylabel('Delta Vm (mV)');
+
+
+end

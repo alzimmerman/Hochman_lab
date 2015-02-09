@@ -1,0 +1,22 @@
+% Function returns end time of file, matrix of Vm during baseline for each
+% current step, and timepoints of baseline
+function [end_time,Vm_base,base_time]=concatenate_ccstep(name,time_previous)
+
+    file=readabf(name);
+    time=(file.data.time');
+    Vm= file.data.c_clamp./10;
+    Iwaveform=file.waveform.yPoints;
+    Swaveform=file.waveform.xPoints;
+    j=find(Iwaveform(:,1)~=0,1);
+    clampon=Swaveform(j,1);
+    [R,C]=size(Vm);
+   
+    for i=1:C
+    base_start(i)=time(2)+time_previous+(i-1).*time(R);
+    base_end(i)= time(clampon)+time_previous +(i-1).*time(R);
+    Vm_base(:,i)=Vm(base_start:base_end,i);
+    base_time(:,i)=base_start
+    
+    end
+    
+    end_time=time_previous+C.*time(R);

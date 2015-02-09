@@ -1,0 +1,31 @@
+% File tests few runs of current injection, must change findspike
+% definition to include first, last, smax, smin or delete from this file
+function [cell,meanparams,average,standard_deviation]=testcurr
+
+files={'07920006.abf','07o19001.abf', '07927014.abf','07n06001.abf','07n09098.abf','07d18001.abf','08107001.abf','08107083.abf','08109002.abf'};
+
+injection=[-40 -40 -12.6 -25.9 -36 -39.8 -12.6 -44.2 -35];
+
+[structure]=comparecurr(files,injection);
+cell=struct2cell(structure);
+[R,C,D]=size(cell);
+meanparams=zeros(D,5);
+
+%Takes mean of non-NaN of parameters, ignoring frequency and current
+for k=1:D
+    for i=2:6
+        temp=cell{i,:,k};
+        clear temp2; temp2=[];
+        for j=1:length(temp)
+            if (isnan(temp(j))<1)   
+                temp2=[temp2 temp(j)];
+            end
+        end
+        meanparams(k,(i-1))=mean(temp2);
+    end
+end
+
+average=mean(meanparams);
+standard_deviation= std(meanparams);
+
+end

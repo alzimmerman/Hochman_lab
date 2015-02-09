@@ -1,0 +1,34 @@
+%function plots constant current injec
+function p=constcurr(filename)
+
+file=readabf(filename);
+
+time=(file.data.time');
+Vm= file.data.c_clamp./10;
+Im=file.waveform.yPoints;
+Swaveform=file.waveform.xPoints;  %gives sample number
+
+
+Fs=1/time(2);
+
+leg= {}; leg2={};
+AMP=[]; DUR= []; AHPDUR=[]; AHPMAG= []; VTH=[]; FREQ=[];
+current=[];
+
+%for initial calculation of clamp times
+j=find(Im(:,1)~=0,1);
+clampon=Swaveform(j,1);
+clampoff=Swaveform(j+1,1);
+
+for i=1:C
+    current(i)=Im(j,i);
+    name=strcat(num2str(current(i)),' pA');
+    leg=strvcat(leg, name);
+    figure(1);
+    plot(time,Vm(:,i)); hold all
+end
+
+title(['Current Clamp Protocol, File ',filename])
+xlabel('Time (s)'); ylabel('Vm (mV)'); 
+axis([(time(clampon)-.05),(time(clampoff)+.1),-Inf,Inf]);
+legend(leg)    
